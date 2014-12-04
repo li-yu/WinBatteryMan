@@ -35,12 +35,13 @@ namespace WinBatteryMan
             }
             else 
             {
-                if (!File.Exists("temp.txt"))
+                if (File.Exists("temp.txt"))
                 {
-                    FileStream fs1 = new FileStream("temp.txt", FileMode.Create, FileAccess.Write);//创建文件
-                    fs1.Close();
+                    File.Delete("temp.txt");
                 }
-                
+                FileStream fs1 = new FileStream("temp.txt", FileMode.Create, FileAccess.Write);//创建文件
+                fs1.Close();
+                listBox1.Items.Clear();
                 isStart = true;
                 button_start.Text = "停止监控";
                 beginTime = DateTime.Now;
@@ -75,7 +76,8 @@ namespace WinBatteryMan
         {
             if (File.Exists("temp.txt"))
             {
-                File.Delete("temp.txt");
+               // File.Delete("temp.txt");
+                openLast();
             }
             PowerManager.BatteryLifePercentChanged += new EventHandler(BatteryLifePercentChanged);
             PowerManager.PowerSourceChanged += new EventHandler(PowerSourceChanged);
@@ -117,7 +119,28 @@ namespace WinBatteryMan
                 File.Copy("temp.txt", localFilePath, true);
                 File.Delete("temp.txt");
                 MessageBox.Show("保存成功!", "Notice");
+            }
+            else 
+            {
+                File.Copy("temp.txt", DateTime.Now.ToString("yyyyMMddHHmmss")+".txt", true);
+                File.Delete("temp.txt");
+            }
+        }
 
+        private void openLast() 
+        {
+            DialogResult dr;
+            dr = MessageBox.Show("检测到有上次数据，是否打开？！", "提示", MessageBoxButtons.YesNo,
+               MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            if (dr == DialogResult.Yes)
+            {
+                StreamReader sr = new StreamReader("temp.txt", Encoding.UTF8);
+                String line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    listBox1.Items.Add(line);
+                }
+                sr.Close();
             }
         }
     }

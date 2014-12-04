@@ -35,10 +35,10 @@
             this.label_powersource = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.progressBar_level = new System.Windows.Forms.ProgressBar();
-            this.label_level = new System.Windows.Forms.Label();
             this.label_status = new System.Windows.Forms.Label();
+            this.label_level = new System.Windows.Forms.Label();
+            this.progressBar_level = new System.Windows.Forms.ProgressBar();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -105,22 +105,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "电源信息";
             // 
-            // label2
+            // label_status
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 12);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "当前电量:";
-            // 
-            // progressBar_level
-            // 
-            this.progressBar_level.Location = new System.Drawing.Point(8, 59);
-            this.progressBar_level.Name = "progressBar_level";
-            this.progressBar_level.Size = new System.Drawing.Size(186, 23);
-            this.progressBar_level.Step = 100;
-            this.progressBar_level.TabIndex = 6;
+            this.label_status.AutoSize = true;
+            this.label_status.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label_status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label_status.Location = new System.Drawing.Point(40, 104);
+            this.label_status.Name = "label_status";
+            this.label_status.Size = new System.Drawing.Size(0, 46);
+            this.label_status.TabIndex = 8;
             // 
             // label_level
             // 
@@ -131,15 +124,22 @@
             this.label_level.TabIndex = 7;
             this.label_level.Text = "NA";
             // 
-            // label_status
+            // progressBar_level
             // 
-            this.label_status.AutoSize = true;
-            this.label_status.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label_status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label_status.Location = new System.Drawing.Point(40, 104);
-            this.label_status.Name = "label_status";
-            this.label_status.Size = new System.Drawing.Size(0, 46);
-            this.label_status.TabIndex = 8;
+            this.progressBar_level.Location = new System.Drawing.Point(8, 59);
+            this.progressBar_level.Name = "progressBar_level";
+            this.progressBar_level.Size = new System.Drawing.Size(186, 23);
+            this.progressBar_level.Step = 100;
+            this.progressBar_level.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "当前电量:";
             // 
             // Form1
             // 
@@ -153,7 +153,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WinBatteryMan v1.0.0 20141127";
+            this.Text = "WinBatteryMan v1.0.1 20141202";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
